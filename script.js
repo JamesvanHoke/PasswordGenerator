@@ -1,11 +1,138 @@
 // Assignment Code
 
+// Array of special characters to be included in password
+var specialCharacters = [
+  "@",
+  "%",
+  "+",
+  "\\",
+  "/",
+  "'",
+  "!",
+  "#",
+  "$",
+  "^",
+  "?",
+  ":",
+  ",",
+  ")",
+  "(",
+  "}",
+  "{",
+  "]",
+  "[",
+  "~",
+  "-",
+  "_",
+  ".",
+];
+
+// Array of numeric characters to be included in password
+var numericCharacters = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+
+// Array of lowercase characters to be included in password
+var lowerCasedCharacters = [
+  "a",
+  "b",
+  "c",
+  "d",
+  "e",
+  "f",
+  "g",
+  "h",
+  "i",
+  "j",
+  "k",
+  "l",
+  "m",
+  "n",
+  "o",
+  "p",
+  "q",
+  "r",
+  "s",
+  "t",
+  "u",
+  "v",
+  "w",
+  "x",
+  "y",
+  "z",
+];
+
+// Array of uppercase characters to be included in password
+var upperCasedCharacters = [
+  "A",
+  "B",
+  "C",
+  "D",
+  "E",
+  "F",
+  "G",
+  "H",
+  "I",
+  "J",
+  "K",
+  "L",
+  "M",
+  "N",
+  "O",
+  "P",
+  "Q",
+  "R",
+  "S",
+  "T",
+  "U",
+  "V",
+  "W",
+  "X",
+  "Y",
+  "Z",
+];
+
 //Retrieves reference to to the button with the generate ID
 var generateBtn = document.querySelector("#generate");
 
 // Add event listener to generate button
-//Adds a listener for generatebtn clicks, executes function of writePassword
 generateBtn.addEventListener("click", writePassword);
+
+function generatePassword() {
+  //Prompt User for Password length
+  var PasswordLength = prompt("Please select a password length between 8 and 128 characters.");
+  //make sure length is between 8 and 128
+  if (PasswordLength < 8 || PasswordLength > 128) {
+    alert("Invalid length; please input a number between 8 and 128");
+    return "invalid length; please input a number btween 8 and 128";    
+  }
+    //Confirm prompt user if they want Special Characters
+    var UseSpecial = confirm("Do you want Special Characters?")
+    //Confirm prompt user if they want Numeric Characters
+    var UseNumeric = confirm("Do you want Numeric Characters?");
+    //Confirm prompt user if they want uppercase Characters
+    var UseUppercase = confirm("Do you want Uppercase Characters?");
+    //Confirm prompt user if they want lowercase Characters
+    var UseLowercase = confirm("Do you want Lowercase Characters?");
+    
+  // Algo for password generation goes below
+
+  // return the build password
+  return "Hello I am the password place holder :)";
+}
+
+// Retrieve a random item from the provided array
+function getRandomItem(arr) {
+  // Generate a random index from 0 to the length - 1 of our array
+  var randomIndex = Math.random() * arr.length;
+  // round down our random index
+  randomIndex = Math.floor(randomIndex);
+  // return the random item based off of our random index
+  return arr[randomIndex];
+  // One liner of the above code
+  // return arr[Math.floor(Math.random() * arr.length)];
+}
+  
+  // console.log(getRandomItem(ArrayName));
+
 
 // Write password to the #password input
 function writePassword() {
@@ -14,34 +141,3 @@ function writePassword() {
 
   passwordText.value = password;
 }
-
-function generatePassword() {
-  //Prompt User for Password length
-  //make sure length is between 8 and 124
-  //Confirm prompt user if they want Special Characters
-  //Confirm prompt user if they want Numeric Characters
-  //Confirm prompt user if they want uppercase Characters
-  //Confirm prompt user if they want lowercase Characters
-
-for (let i = 0; i < array.length; index++) {
-    const element = array[index];
-    
-}
-
-  return "password should go here";
-}
-
-// Retrieve a random item from the provided array
-function getRandomItem(arr) {
-    // Generate a random index from 0 to the length - 1 of our array
-    var randomIndex = Math.random() * arr.length;
-    // round down our random index
-    randomIndex = Math.floor(randomIndex);
-    // return the random item based off of our random index
-    return arr[randomIndex];
-  
-    // One liner of the above code
-    // return arr[Math.floor(Math.random() * arr.length)];
-  }
-  
-  console.log(getRandomItem(pets));
