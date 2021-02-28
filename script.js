@@ -105,14 +105,20 @@ function generatePassword() {
     return "invalid length; please input a number btween 8 and 128";    
   }
     //Confirm prompt user if they want Special Characters
-    var UseSpecial = confirm("Do you want Special Characters?")
+    var UseSpecial = confirm("Do you want Special Characters? (!,#,?, etc)");
     //Confirm prompt user if they want Numeric Characters
-    var UseNumeric = confirm("Do you want Numeric Characters?");
+    var UseNumeric = confirm("Do you want Numeric Characters? (0-9)");
     //Confirm prompt user if they want uppercase Characters
-    var UseUppercase = confirm("Do you want Uppercase Characters?");
+    var UseUppercase = confirm("Do you want Uppercase Characters?  (A-Z)");
     //Confirm prompt user if they want lowercase Characters
-    var UseLowercase = confirm("Do you want Lowercase Characters?");
+    var UseLowercase = confirm("Do you want Lowercase Characters? (a-z)");
     
+    if (!UseLowercase && !UseNumeric && !UseSpecial && !UseUppercase) {
+      return alert('At least one character type must be selected')      
+    }
+
+
+
   // Algo for password generation goes below
 
   // return the build password
