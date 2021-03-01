@@ -90,6 +90,8 @@ var upperCasedCharacters = [
   "Z",
 ];
 
+var PasswordCharacters = "";
+
 //Retrieves reference to to the button with the generate ID
 var generateBtn = document.querySelector("#generate");
 
@@ -98,28 +100,43 @@ generateBtn.addEventListener("click", writePassword);
 
 function generatePassword() {
   //Prompt User for Password length
-  var PasswordLength = prompt("Please select a password length between 8 and 128 characters.");
+  var PasswordLength = prompt(
+    "Please select a password length between 8 and 128 characters."
+  );
   //make sure length is between 8 and 128
   if (PasswordLength < 8 || PasswordLength > 128) {
     alert("Invalid length; please input a number between 8 and 128");
-    return "invalid length; please input a number btween 8 and 128";    
+    return "invalid length; please input a number btween 8 and 128";
   }
-    //Confirm prompt user if they want Special Characters
-    var UseSpecial = confirm("Do you want Special Characters? (!,#,?, etc)");
-    //Confirm prompt user if they want Numeric Characters
-    var UseNumeric = confirm("Do you want Numeric Characters? (0-9)");
-    //Confirm prompt user if they want uppercase Characters
-    var UseUppercase = confirm("Do you want Uppercase Characters?  (A-Z)");
-    //Confirm prompt user if they want lowercase Characters
-    var UseLowercase = confirm("Do you want Lowercase Characters? (a-z)");
-    
-    if (!UseLowercase && !UseNumeric && !UseSpecial && !UseUppercase) {
-      return alert('At least one character type must be selected')      
-    }
+  //Confirm prompt user if they want Special Characters
+  var UseSpecial = confirm("Do you want Special Characters? (!,#,?, etc)");
+  //Confirm prompt user if they want Numeric Characters
+  var UseNumeric = confirm("Do you want Numeric Characters? (0-9)");
+  //Confirm prompt user if they want uppercase Characters
+  var UseUppercase = confirm("Do you want Uppercase Characters?  (A-Z)");
+  //Confirm prompt user if they want lowercase Characters
+  var UseLowercase = confirm("Do you want Lowercase Characters? (a-z)");
 
-
-
-  // Algo for password generation goes below
+  //Checks to make sure one of the character sets is used.
+  if (!UseLowercase && !UseNumeric && !UseSpecial && !UseUppercase) {
+    return alert("At least one character type must be selected");
+  }
+  //Adds special characters to password generation
+  if (UseSpecial) {
+    PasswordCharacters += specialCharacters;
+  }
+  //Adds numeric characters to password generation
+  if (UseNumeric) {
+    PasswordCharacters += numericCharacters;
+  }
+  //Adds Upper Case characters to password generation
+  if (UseUppercase) {
+    PasswordCharacters += upperCasedCharacters;
+  }
+  //Adds Lower Case characters to password generation
+  if (UseLowercase) {
+    PasswordCharacters += lowerCasedCharacters;
+  }
 
   // return the build password
   return "Hello I am the password place holder :)";
@@ -136,9 +153,8 @@ function getRandomItem(arr) {
   // One liner of the above code
   // return arr[Math.floor(Math.random() * arr.length)];
 }
-  
-  // console.log(getRandomItem(ArrayName));
 
+// console.log(getRandomItem(ArrayName));
 
 // Write password to the #password input
 function writePassword() {
