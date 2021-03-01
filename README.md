@@ -30,3 +30,6 @@ Once the character sets have been chosen the Javascript will randomly select fro
 
 ## Preview
 ![Video Preview of Password Generator](https://i.imgur.com/Kxn9BLI.gif)
+
+## Link
+https://jamesvanhoke.github.io/PasswordGenerator/
