@@ -1,5 +1,5 @@
 // Assignment Code
-
+debugger;
 // Array of special characters to be included in password
 var specialCharacters = [
   "@",
@@ -93,9 +93,6 @@ var upperCasedCharacters = [
 //Creates blank variable for the user prompt to feed the desired characters into
 var PasswordCharacters = "";
 
-//Creates blank variable for the password to be fed into
-var Password = "";
-
 //Retrieves reference to to the button with the generate ID
 var generateBtn = document.querySelector("#generate");
 
@@ -124,7 +121,7 @@ function generatePassword() {
   }
   //Confirm prompt user if they want uppercase Characters
   var UseUppercase = confirm("Do you want Uppercase Characters?  (A-Z)");
-  //Adds Upper Case characters to password generation
+  //Adds Upper Case characters to password generation array
   if (UseUppercase) {
     PasswordCharacters = [...PasswordCharacters, ...upperCasedCharacters];
   }
@@ -138,11 +135,15 @@ function generatePassword() {
   if (!UseLowercase && !UseNumeric && !UseSpecial && !UseUppercase) {
     return alert("At least one character type must be selected");
   }
-
+//Function to pull a random index from a specified array
+  function random(Array) {
+    var randomeIndex = Math.floor(Math.random() * Array.length);
+    var item = Array[randomeIndex];
+    return item;
+  }
   //For loops iterates based on Password length specified by user. Uses math.random to randomly select an index from our generated PasswordCharacters array, and continues until we reach desired password length
   for (var i = 0; i < PasswordLength; i++) {
-    password +=
-      PasswordCharacters[Math.floor(Math.random() * PasswordCharacters.length)];
+    password += random(PasswordCharacters);
   }
   return password;
 }
