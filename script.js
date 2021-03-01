@@ -1,5 +1,5 @@
 // Assignment Code
-debugger;
+
 // Array of special characters to be included in password
 var specialCharacters = [
   "@",
@@ -93,6 +93,9 @@ var upperCasedCharacters = [
 //Creates blank variable for the user prompt to feed the desired characters into
 var PasswordCharacters = "";
 
+//Creates our blank password to build off of
+var passwordtext = '' ;
+
 //Retrieves reference to to the button with the generate ID
 var generateBtn = document.querySelector("#generate");
 
@@ -142,10 +145,12 @@ function generatePassword() {
     return item;
   }
   //For loops iterates based on Password length specified by user. Uses math.random to randomly select an index from our generated PasswordCharacters array, and continues until we reach desired password length
+
   for (var i = 0; i < PasswordLength; i++) {
-    password += random(PasswordCharacters);
+    passwordtext += random(PasswordCharacters);
   }
-  return password;
+ return passwordtext;
+ 
 }
 
 //Write password to the #password input
